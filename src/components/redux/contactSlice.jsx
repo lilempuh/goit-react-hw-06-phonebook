@@ -10,7 +10,9 @@ const contactSlice = createSlice({
       state.contacts.push(payload);
     },
     deleteContact(state, { payload }) {
-      return state.contacts.filter(item => item.id !== payload);
+      const newContacts = state.contacts.filter(item => item.id !== payload);
+
+      return { ...state, contacts: newContacts };
     },
   },
 });
